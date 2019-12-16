@@ -19,7 +19,7 @@ import unittest
 import json
 from kncloudevents import kncloudevents
 from cloudevents.sdk import marshaller
-from cloudevents.sdk.event import v02
+from cloudevents.sdk.event import v03
 from cloudevents.sdk import converters
 import requests
 from multiprocessing import Process
@@ -27,7 +27,7 @@ from multiprocessing import Process
 m = marshaller.NewDefaultHTTPMarshaller()
 
 event = (
-    v02.Event().
+    v03.Event().
         SetContentType("application/json").
         SetData({"name": "denis"}).
         SetEventID("my-id").
