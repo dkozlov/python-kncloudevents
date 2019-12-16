@@ -18,7 +18,7 @@ import http.server
 import socketserver
 import json
 import logging
-from cloudevents.sdk.event import v02
+from cloudevents.sdk.event import v03
 from cloudevents.sdk import marshaller
 import io
 
@@ -55,7 +55,7 @@ class CloudeventsServer(object):
                 if content_type != 'application/json':
                     data = io.StringIO(data)
 
-                event = v02.Event()
+                event = v03.Event()
                 event = m.FromRequest(event, headers, data, json.loads)
                 func(event)
                 self.send_response(204)
